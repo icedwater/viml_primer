@@ -29,3 +29,8 @@ echo sort(copy(wrestlers))
 echo "Original:"
 echo wrestlers
 
+let canadians = wrestlers[:1]
+let others = wrestlers[2:-1]
+
+echo canadians
+echo others
