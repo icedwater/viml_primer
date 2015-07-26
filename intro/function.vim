@@ -1,3 +1,3 @@
-function! EchoQuote()
-    echo 'A poet can but ill spare time for prose.'
+function! EchoQuote(quote)
+    echo a:quote
 endfunction
