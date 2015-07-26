@@ -3,5 +3,6 @@ function! EchoQuote(quote, ...)
     " there are year and source, in either order.
     " If the arguments are not provided, EchoQuote
     " chokes and dies.
-    echo a:quote " - " a:000[0] a:2
+
+    echo a:quote . " - " . a:2 . ", " . a:000[0] . "."
 endfunction
