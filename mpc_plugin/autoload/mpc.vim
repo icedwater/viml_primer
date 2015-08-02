@@ -43,18 +43,19 @@ function! LargestNumber(no1, no2)
 endfunction
 
 function! mpc#DisplayPlaylist()
-    let cmd = "mpc --format '%position%: %title% (%artist%, %album%)' playlist"
-    let playlist = split(system(cmd), '\n')
+    let playlist = mpc#GetPlaylist()
 
-    call append(0, playlist) " does the same as below
-
-    "for track in playlist
-    "    if (playlist[0] == track)
-    "        execute "normal! I" . track
-    "    else
-    "        call append(line('$'), track)
-    "    endif
-    "endfor
+    for track in playlist
+        let output = track.position . " "
+                    \ . track.title
+                    \ . track.artist
+                    \ . track.album
+        if (playlist[0].position == track.position)
+            execute "normal! 1GdGI" . output
+        else
+            call append(line('$'), output)
+        endif
+    endfor
 endfunction
 
 function! mpc#PlaySong(no)
